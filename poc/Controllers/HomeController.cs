@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using poc.Models;
 using poc.Views.Home;
 
 namespace poc.Controllers
@@ -12,17 +11,16 @@ namespace poc.Controllers
             return View(model);
         }
 
-        public ActionResult About()
+        public ActionResult AllBooks()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "List of all shared books";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult GiveAway()
         {
-            ViewBag.Message = "Your contact page.";
-
+            ViewBag.Message = "Give your books away!";
             return View();
         }
     }

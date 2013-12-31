@@ -1,0 +1,15 @@
+﻿@using poc.Models
+@model poc.Views.Home.AllBooksViewModel
+
+@{
+    ViewBag.Title = "All Books";
+}
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+@foreach(Book book in BookRepository.GetAllBooks())
+{
+    <div>
+        <p>@book.Title by @book.Author (shared by @book.SharedBy.Name)</p>
+    </div>
+}
