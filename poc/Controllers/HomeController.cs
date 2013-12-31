@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Net;
+using System.Web.Mvc;
 using poc.Models;
 using poc.Views.Home;
 
@@ -22,7 +23,6 @@ namespace poc.Controllers
         [HttpGet]
         public ActionResult GiveAway()
         {
-            ViewBag.Message = "Give your books away!";
             return View();
         }
 
