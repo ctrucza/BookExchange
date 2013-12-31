@@ -15,12 +15,12 @@
         {
             <div class="form-group">
                 @Html.LabelFor(model => model.Author)
-                <input type="text" class="form-control" id="Author" name="Author" placeholder="Author" />
+                <input type="text" class="form-control" id="Author" name="Author" placeholder="Author" required="true" />
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(model => model.Title)
-                <input type="text" class="form-control" id="Title" name="Title" placeholder="Title" />
+                <input type="text" class="form-control" id="Title" name="Title" placeholder="Title" required="true"/>
             </div>
 
             <button type="submit" class="btn btn-default">Submit</button>
