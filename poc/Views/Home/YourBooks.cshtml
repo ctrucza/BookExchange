@@ -1,15 +1,16 @@
 ﻿@using poc.Models
 
 @{
-    ViewBag.Title = "All Books";
+    ViewBag.Title = "Your Shared Books";
 }
+
 <div class="well">
-    <p>These are all the books others want to share.</p>
-    <p>Take one or many. Remember: after you read it, you can share it again.</p>
+    <p>These are all the books you share.</p>
+    <p>Thanks for sharing.</p>
     <a class="btn btn-primary" href="@Url.Action("GiveAway")">Give away a book now!</a>
 </div>
 
-@foreach(Book book in BookRepository.GetAllBooks())
+@foreach (Book book in BookRepository.GetMyBooks())
 {
     <div>
         <p>@book.Title by @book.Author (shared by @book.SharedBy.Name)</p>

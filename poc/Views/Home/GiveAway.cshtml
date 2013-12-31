@@ -1,9 +1,12 @@
 ﻿@using poc.Models
-@model poc.Models.Book
 
 @{
     ViewBag.Title = "Give away your books";
 }
+
+<div class="well">
+    <p>Remember: you are giving your books away for free!</p>
+</div>
 
 <div class="row">
     <div class="col-md-6">
@@ -40,7 +43,7 @@
     </div>
 
     <div class="col-md-6">
-        <h2>Your books</h2>
+        <h2>Your shared books</h2>
         @foreach (Book book in BookRepository.GetMyBooks())
         {
             <div>

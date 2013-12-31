@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Web.Mvc;
+using Antlr.Runtime.Misc;
 using poc.Models;
 using poc.Views.Home;
 
@@ -15,8 +16,11 @@ namespace poc.Controllers
 
         public ActionResult AllBooks()
         {
-            ViewBag.Message = "List of all shared books";
+            return View();
+        }
 
+        public ActionResult YourBooks()
+        {
             return View();
         }
 
