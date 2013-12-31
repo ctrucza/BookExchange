@@ -19,6 +19,11 @@ namespace poc.Controllers
             return View();
         }
 
+        public ActionResult AllUsers()
+        {
+            return View();
+        }
+
         public ActionResult YourBooks()
         {
             return View();

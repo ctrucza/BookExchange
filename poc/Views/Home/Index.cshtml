@@ -11,25 +11,24 @@
     <a class="btn btn-primary" href="@Url.Action("GiveAway")">Give away a book now!</a>
 </div>
 
+<h2>Recent books <a class="btn btn-default" href="@Url.Action("AllBooks")">See all</a></h2> 
 <div class="row">
-    <div class="col-md-9">
-        <h2>Recent books</h2>
-        @foreach(Book book in Model.RecentBooks)
-        {
-            <div>
-                <p>@book.Title by @book.Author (shared by @book.SharedBy.Name)</p>
-            </div>
-        }
-        <a class="btn btn-default" href="@Url.Action("AllBooks")">See all books</a>
-    </div>
-    <div class="col-md-3">
-        <h2>Top sharers</h2>
-        @foreach (User user in Model.TopSharers)
-        {
-            <div>
-                <p>@user.Name shared @user.SharedBooksCount books</p>
-            </div>
-        }
-        <button class="btn btn-default">See all sharers</button>
-    </div>
+    @foreach (Book book in Model.RecentBooks)
+    {
+        <div class="col-md-3 book-thumbnail">
+            <p>@book.Title by @book.Author</p> 
+            <p>(shared by @book.SharedBy.Name)</p>
+        </div>
+    }
 </div>
+
+<h2>Top sharers <a class="btn btn-default" href="@Url.Action("AllUsers")">See all</a></h2>
+<div class="row">
+@foreach (User user in Model.TopSharers)
+{
+    <div class="col-md-2 user-thumbnail">
+        <p>@user.Name shared @user.SharedBooksCount books</p>
+    </div>
+}
+</div>
+

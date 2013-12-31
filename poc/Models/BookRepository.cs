@@ -8,7 +8,7 @@ namespace poc.Models
         public static IEnumerable<Book> GetRecentBooks()
         {
             List<Book> result = new List<Book>();
-            for(int i = 0; i < 10; ++i)
+            for(int i = 0; i < 12; ++i)
             {
                 result.Add(new Book
                 {

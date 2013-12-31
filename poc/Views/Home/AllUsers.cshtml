@@ -1,0 +1,17 @@
+﻿@using poc.Models
+
+@{
+    ViewBag.Title = "All Userts";
+}
+<div class="well">
+    <p>These are all the people who share their books.</p>
+    <p>Thank you.</p>
+    <a class="btn btn-primary" href="@Url.Action("GiveAway")">Give away a book now!</a>
+</div>
+
+@foreach (User user in UserRepository.GetAllUsers())
+{
+    <div>
+        <p>@user.Name (shared books: @user.SharedBooksCount)</p>
+    </div>
+}
