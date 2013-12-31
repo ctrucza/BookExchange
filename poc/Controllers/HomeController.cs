@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using poc.Models;
 using poc.Views.Home;
 
 namespace poc.Controllers
@@ -18,10 +19,18 @@ namespace poc.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult GiveAway()
         {
             ViewBag.Message = "Give your books away!";
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult GiveAway(Book book)
+        {
+            BookRepository.AddNewBook(book, User.Identity.Name);
+            return RedirectToAction("GiveAway");
         }
     }
 }

@@ -4,6 +4,7 @@ namespace poc.Models
 {
     public static class BookRepository
     {
+        private static List<Book> currentUsersBooks = new List<Book>(); 
         public static IEnumerable<Book> GetRecentBooks()
         {
             List<Book> result = new List<Book>();
@@ -32,6 +33,21 @@ namespace poc.Models
                 });
             }
             return result;
+        }
+
+        public static void AddNewBook(Book book, string username)
+        {
+            book.SharedBy = new User
+            {
+                Name = username,
+                SharedBooksCount = currentUsersBooks.Count + 1
+            };
+            currentUsersBooks.Add(book);
+        }
+
+        public static IEnumerable<Book> GetMyBooks()
+        {
+            return currentUsersBooks;
         }
     }
 }
