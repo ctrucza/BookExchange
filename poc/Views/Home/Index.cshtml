@@ -1,0 +1,37 @@
+﻿@using poc.Models
+@model poc.Views.Home.HomeViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Book exchange</h1>
+    <p>Do you have books you didn't open in the last year? Last five years? You will never open them again. So why keep them around? Why not give them away?</p>
+    <p>Use this site to give them away and get some new books from others.</p>
+    <p>Remember: after you read it, you can share it again.</p>
+    <button class="btn btn-primary">Give away a book now!</button>
+</div>
+
+<div class="row">
+    <div class="col-md-9">
+        <h2>Recent books</h2>
+        @foreach(Book book in Model.RecentBooks)
+        {
+            <div>
+                <p>@book.Title by @book.Author (shared by @book.SharedBy.Name)</p>
+            </div>
+        }
+        <button class="btn btn-default">See all books</button>
+    </div>
+    <div class="col-md-3">
+        <h2>Top sharers</h2>
+        @foreach (User user in Model.TopSharers)
+        {
+            <div>
+                <p>@user.Name shared @user.SharedBooksCount books</p>
+            </div>
+        }
+        <button class="btn btn-default">See all sharers</button>
+    </div>
+</div>
