@@ -160,6 +160,9 @@
     <Content Include="Views\Home\GiveAway.cshtml" />
     <Content Include="Views\Home\YourBooks.cshtml" />
     <Content Include="Views\Home\AllUsers.cshtml" />
+    <Content Include="Views\Home\BookList.cshtml" />
+    <Content Include="Views\Home\UserList.cshtml" />
+    <Content Include="Views\Home\UsersBooks.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

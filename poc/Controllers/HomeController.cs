@@ -41,5 +41,10 @@ namespace poc.Controllers
             BookRepository.AddNewBook(book, User.Identity.Name);
             return RedirectToAction("GiveAway");
         }
+
+        public ActionResult UsersBooks(string userName)
+        {
+            return View(userName);
+        }
     }
 }

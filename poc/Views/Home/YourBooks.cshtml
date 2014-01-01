@@ -10,9 +10,4 @@
     <a class="btn btn-primary" href="@Url.Action("GiveAway")">Give away a book now!</a>
 </div>
 
-@foreach (Book book in BookRepository.GetMyBooks())
-{
-    <div>
-        <p>@book.Title by @book.Author (shared by @book.SharedBy.Name)</p>
-    </div>
-}
+@Html.Partial("BookList", BookRepository.GetMyBooks());

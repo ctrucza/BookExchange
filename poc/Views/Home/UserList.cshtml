@@ -1,0 +1,23 @@
+﻿@using poc.Models
+@model IEnumerable<User>
+
+<div class="table-responsive">
+
+    <table class="table table-striped table-condensed table-hover table-bordered">
+        <tr>
+            <th>Name</th>
+            <th>Shared</th>
+        </tr>
+        @foreach (User user in Model)
+        {
+            <tr>
+                <td class="col-md-9">@user.Name</td>
+                                
+
+                <td>@Html.ActionLink(user.SharedBooksCount.ToString(), "UsersBooks", new { user.Name })</td>
+                @*<td><a class="col-md-3" href="#">@user.SharedBooksCount</a></td>*@
+
+            </tr>
+        }
+    </table>
+</div>
