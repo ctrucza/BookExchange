@@ -1,8 +1,5 @@
-﻿using System.Net;
-using System.Web.Mvc;
-using Antlr.Runtime.Misc;
+﻿using System.Web.Mvc;
 using poc.Models;
-using poc.Views.Home;
 
 namespace poc.Controllers
 {
@@ -10,8 +7,7 @@ namespace poc.Controllers
     {
         public ActionResult Index()
         {
-            HomeViewModel model =  new HomeViewModel();
-            return View(model);
+            return View();
         }
 
         public ActionResult AllBooks()

@@ -119,7 +119,6 @@
     <Compile Include="Models\DAL.cs" />
     <Compile Include="Models\MockStorage.cs" />
     <Compile Include="Models\Storage.cs" />
-    <Compile Include="Views\Home\HomeViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
