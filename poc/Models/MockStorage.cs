@@ -31,7 +31,7 @@ namespace poc.Models
             return new User
             {
                 Name = "Random user " + random.Next(50),
-                SharedBooksCount = 42 + random.Next(50)
+                Books = new List<Book>()
             };
         }
 
@@ -50,13 +50,17 @@ namespace poc.Models
         {
             for(int i = 0; i < 100; ++i)
             {
+                User user = GetRandomUser();
+
                 Book book = new Book
                 {
                     Author = "Random author " + random.Next(50),
                     Title = "Random title " + random.Next(50),
-                    SharedBy = GetRandomUser()
+                    SharedBy = user
                 };
+
                 Add(book);
+                user.Books.Add(book);
             }
         }
 

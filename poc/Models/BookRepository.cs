@@ -22,7 +22,8 @@ namespace poc.Models
             {
                 user = new User
                 {
-                    Name = username
+                    Name = username,
+                    Books = new List<Book>()
                 };
                 DAL.AddUser(user);
             }
