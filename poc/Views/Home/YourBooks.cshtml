@@ -10,4 +10,4 @@
     <a class="btn btn-primary" href="@Url.Action("GiveAway")">Give away a book now!</a>
 </div>
 
-@Html.Partial("BookList", BookRepository.GetMyBooks());
+@Html.Partial("BookList", BookRepository.GetUsersBooks(@User.Identity.Name));

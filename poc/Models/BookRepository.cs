@@ -5,22 +5,9 @@ namespace poc.Models
 {
     public static class BookRepository
     {
-        private static List<Book> currentUsersBooks = new List<Book>();
-        private static List<Book> allBooks = new List<Book>();
-
         public static IEnumerable<Book> GetAllBooks()
         {
-            List<Book> result = new List<Book>();
-            for (int i = 0; i < 100; ++i)
-            {
-                result.Add(new Book
-                {
-                    Author = "Author " + i,
-                    Title = "Title " + i,
-                    SharedBy = UserRepository.GetRandomUser()
-                });
-            }
-            return result;
+            return DAL.Books();
         }
 
         public static IEnumerable<Book> GetRecentBooks()
@@ -30,18 +17,17 @@ namespace poc.Models
 
         public static void AddNewBook(Book book, string username)
         {
-            book.SharedBy = new User
+            User user = DAL.Users().SingleOrDefault(u => u.Name == username);
+            if(user == null)
             {
-                Name = username,
-                SharedBooksCount = currentUsersBooks.Count + 1
-            };
-            currentUsersBooks.Add(book);
-        }
-
-        public static IEnumerable<Book> GetMyBooks()
-        {
-            // TODO: use GetUsersBooks
-            return currentUsersBooks;
+                user = new User
+                {
+                    Name = username
+                };
+                DAL.AddUser(user);
+            }
+            book.SharedBy = user;
+            DAL.AddBook(book);
         }
 
         public static IEnumerable<Book> GetUsersBooks(string userName)
