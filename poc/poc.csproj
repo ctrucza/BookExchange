@@ -39,6 +39,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Glimpse.AspNet">
+      <HintPath>..\packages\Glimpse.AspNet.1.6.0\lib\net45\Glimpse.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Core, Version=1.8.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Glimpse.1.8.1\lib\net45\Glimpse.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Mvc4">
+      <HintPath>..\packages\Glimpse.Mvc4.1.5.2\lib\net40\Glimpse.Mvc4.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -114,6 +124,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Models\BookRepository.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\DAL.cs" />
