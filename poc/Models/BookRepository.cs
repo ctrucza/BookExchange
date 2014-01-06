@@ -10,11 +10,6 @@ namespace poc.Models
             return DAL.Books();
         }
 
-        public static IEnumerable<Book> GetRecentBooks()
-        {
-            return GetAllBooks().Take(12);
-        }
-
         public static void AddNewBook(Book book, string username)
         {
             User user = DAL.Users().SingleOrDefault(u => u.Name == username);

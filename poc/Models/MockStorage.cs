@@ -80,21 +80,10 @@ namespace poc.Models
             return lists[typeof(T)] as IList<T>;
         }
         
-        public T Add<T>(T entity) where T : class
+        public void Add<T>(T entity) where T : class
         {
             IList<T> table = GetList<T>();
             table.Add(entity);
-            return entity;
-        }
-
-        public T Update<T>(T entity) where T : class
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Remove<T>(T entity) where T : class
-        {
-            throw new NotImplementedException();
         }
     }
 }
