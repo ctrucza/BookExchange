@@ -10,6 +10,20 @@ namespace poc.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Search(string searchTerm)
+        {
+            var result = BookRepository.Search(searchTerm);
+            return View("BookList", result);
+        }
+
+        [HttpPost]
+        public ActionResult AddBook(Book book)
+        {
+            BookRepository.AddNewBook(book, User.Identity.Name);
+            return View(book);
+        }
+
         public ActionResult AllBooks()
         {
             return View();

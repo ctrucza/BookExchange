@@ -1,5 +1,4 @@
 ﻿@using poc.Models
-@model Book
 
 @{
     ViewBag.Title = "Home Page";
@@ -9,14 +8,15 @@
     <div class="col-md-6">
         <h2>Search</h2>
 
-        @using (Html.BeginForm())
+        @using (Html.BeginForm("Search", "Home"))
         {
+            @User.Identity.Name
             @Html.AntiForgeryToken()
             <div class="form-horizontal">
 
                 <div class="form-group">
                     <div class="col-md-10">
-                        <input class="form-control" id="Search" name="Search" type="text" placeholder="Author or title" />
+                        <input class="form-control" id="Search" name="SearchTerm" type="text" placeholder="Author or title" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -32,24 +32,22 @@
     <div class="col-md-6">
         <h2>Give away a book</h2>
 
-        @using (Html.BeginForm())
+        @using (Html.BeginForm("AddBook", "Home"))
         {
             @Html.AntiForgeryToken()
             <div class="form-horizontal">
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Author, new { @class = "control-label col-md-2" })
+                    <div class="form-inline col-md-2">Author</div>
                     <div class="col-md-10">
                         <input class="form-control" id="Author" name="Author" type="text" placeholder="Author" autofocus required />
-                        @Html.ValidationMessageFor(model => model.Author)
                     </div>
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Title, new { @class = "control-label col-md-2" })
+                    <div class="form-inline col-md-2">Title</div>
                     <div class="col-md-10">
                         <input class="form-control" id="Title" name="Title" placeholder="Title" type="text" />
-                        @Html.ValidationMessageFor(model => model.Title)
                     </div>
                 </div>
 

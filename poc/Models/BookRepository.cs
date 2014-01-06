@@ -35,5 +35,13 @@ namespace poc.Models
         {
             return GetAllBooks().Where(b => b.SharedBy.Name == userName);
         }
+
+        public static IEnumerable<Book> Search(string searchTerm)
+        {
+            IEnumerable<Book> result = GetAllBooks().Where( book =>
+                    book.Title.Contains(searchTerm) || book.Author.Contains(searchTerm)
+                );
+            return result;
+        }
     }
 }
