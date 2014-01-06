@@ -1,23 +1,65 @@
 ﻿@using poc.Models
+@model Book
 
 @{
     ViewBag.Title = "Home Page";
 }
 
-<div class="well">
-    <p>Do you have books you didn't open in the last year? Last five years? You will never open them again. So why keep them around? Why not give them away?</p>
-    <p>Use this site to give them away and get some new books from others. Remember: after you read it, you can share it again.</p>
-    <a class="btn btn-primary" href="@Url.Action("GiveAway")">Give away a book now!</a>
-</div>
-
 <div class="row">
-    <div class="col-md-8">
-        <h2>Recent books <a class="btn btn-default" href="@Url.Action("AllBooks")">See all</a></h2>
-        @Html.Partial("BookList", BookRepository.GetRecentBooks())
+    <div class="col-md-6">
+        <h2>Search</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input class="form-control" id="Search" name="Search" type="text" placeholder="Author or title" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="submit" value="Search" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        }
     </div>
-    <div class="col-md-4">
-        <h2>Top sharers <a class="btn btn-default" href="@Url.Action("AllUsers")">See all</a></h2>
-        @Html.Partial("UserList", UserRepository.GetTopSharers())
+
+
+    <div class="col-md-6">
+        <h2>Give away a book</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Author, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input class="form-control" id="Author" name="Author" type="text" placeholder="Author" autofocus required />
+                        @Html.ValidationMessageFor(model => model.Author)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Title, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input class="form-control" id="Title" name="Title" placeholder="Title" type="text" />
+                        @Html.ValidationMessageFor(model => model.Title)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Give it away!" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        }
     </div>
 </div>
 

@@ -8,34 +8,21 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Book Exchange", "Index", "Home", null, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("All Books", "AllBooks", "Home")</li>
-                    <li>@Html.ActionLink("Who shares?", "AllUsers", "Home")</li>
-                    <li>@Html.ActionLink("Your Books", "YourBooks", "Home")</li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="navbar-text">Hello, @User.Identity.Name!</li>
-                </ul>
-            </div>
-        </div>
-    </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - iQuest Labs</p>
+            <div class="navbar-collapse collapse navbar-">
+                <ul class="nav navbar-nav">
+                    <li class="navbar-link">@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Books", "AllBooks", "Home")</li>
+                    <li>@Html.ActionLink("People", "AllUsers", "Home")</li>
+                    <li>@Html.ActionLink("Your Books", "YourBooks", "Home")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink(@User.Identity.Name, "YourBooks", "Home")</li>
+                </ul>
+            </div>
         </footer>
     </div>
 
