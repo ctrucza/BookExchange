@@ -4,11 +4,10 @@
 
 <div class="row">
     <div class="col-md-6">
-        <h2>Search</h2>
+        <h2>Search for a book</h2>
 
         @using (Html.BeginForm("Search", "Home"))
         {
-            @User.Identity.Name
             @Html.AntiForgeryToken()
             <div class="form-horizontal">
 
@@ -30,7 +29,7 @@
     <div class="col-md-6">
         <h2>Give away a book</h2>
 
-        @using (Html.BeginForm("AddBook", "Home"))
+        @*@using (Html.BeginForm("AddBook", "Home"))
         {
             @Html.AntiForgeryToken()
             <div class="form-horizontal">
@@ -51,11 +50,38 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Give it away!" class="btn btn-primary" />
+                        <input class="btn btn-primary" type="submit" value="Give it away!" />
                     </div>
                 </div>
             </div>
-        }
+        }*@
+
+        <div class="form-horizontal">
+
+            <div class="form-group">
+                <div class="form-inline col-md-2">Author</div>
+                <div class="col-md-10">
+                    <input class="form-control" id="author" name="Author" type="text" placeholder="Author" autofocus required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-inline col-md-2">Title</div>
+                <div class="col-md-10">
+                    <input class="form-control" id="title" name="Title" placeholder="Title" type="text" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button class="btn btn-primary" id="addBookButton">Give it away!</button>
+                </div>
+            </div>
+        </div>
+        <div id="status"></div>
+        <div id="result"></div>
     </div>
 </div>
+
+<script src="~/Scripts/addBook.js"></script>
 

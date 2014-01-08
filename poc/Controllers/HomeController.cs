@@ -1,4 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using System.Net;
+using System.Net.Http;
+using System.Web;
+using System.Web.Mvc;
 using poc.Models;
 
 namespace poc.Controllers
@@ -17,11 +20,18 @@ namespace poc.Controllers
             return View("BookList", result);
         }
 
+        //[HttpPost]
+        //public ActionResult AddBook(Book book)
+        //{
+        //    BookRepository.AddNewBook(book, User.Identity.Name);
+        //    return RedirectToAction("Index");
+        //}
+
         [HttpPost]
-        public ActionResult AddBook(Book book)
+        public HttpResponseMessage AddBook(Book book)
         {
             BookRepository.AddNewBook(book, User.Identity.Name);
-            return View(book);
+            return new HttpResponseMessage(HttpStatusCode.OK);
         }
 
         public ActionResult AllBooks()
